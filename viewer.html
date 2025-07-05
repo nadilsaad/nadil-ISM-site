@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadil ISM - Lecture Viewer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecture Viewer</title>
   <style>
     body {
       margin: 0;
-      background-color: #f4f6f8;
       font-family: Arial, sans-serif;
     }
     header {
@@ -25,10 +24,34 @@
 </head>
 <body>
   <header>
-    <h1>Nadil ISM First Year - Lecture Viewer</h1>
+    <h1>Lecture Viewer</h1>
   </header>
-  <iframe 
-  src="https://docs.google.com/presentation/d/e/2PACX-1vRFnFGykhRk7ScQ9MknlXIWjpAL7MR9aEoCz3ibHH3gSqEaKd6EenmJ9MFhqh9_k-a8xJtXbhNiMY_d/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="1280" height="749" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-  </iframe>
+
+  <iframe id="lectureFrame" allowfullscreen></iframe>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const lecture = params.get("lecture");
+
+    const slides = {
+      1: "https://docs.google.com/presentation/d/e/2PACX-1vRFnFGykhRk7ScQ9MknlXIWjpAL7MR9aEoCz3ibHH3gSqEaKd6EenmJ9MFhqh9_k-a8xJtXbhNiMY_d/pubembed?start=false&loop=false&delayms=3000",
+      2: "https://docs.google.com/presentation/d/e/2PACX-1vQHCFV70kWWBxkVTXrlQKtRyCmdgBKDSsANDrLBffRsLbuqRy8t1uVEUHht_aNtkA/pubembed?start=false&loop=false&delayms=3000",
+      3: "https://docs.google.com/presentation/d/e/2PACX-1vTZsZHWcgGwqcHqnqQegHpnvUVLbUm1FAfkiImwS3oonMk5VtJjpSoylBqx1h5Tqg/pubembed?start=false&loop=false&delayms=3000",
+      4: "https://docs.google.com/presentation/d/e/2PACX-1vQZjZiIVmOGR-q6L-8ryqDAkePts_fytMNbLmHobmkShxClPn84GdovZechFLQRdw/pubembed?start=false&loop=false&delayms=3000", 
+      5: "https://docs.google.com/presentation/d/e/2PACX-1vRIKwBHbmJtbV1SAAvfDIAzDxWtFYlumvvthiSPALmjQ6eXdKllyL04EBqBzHEJVg/pubembed?start=false&loop=false&delayms=3000",
+      6: "https://docs.google.com/presentation/d/e/2PACX-1vStkLlAgz871mA72AUVA6PWOxErqfUZ8q01umXvpDgQiETB15G4zzE585-BfrLqjg/pubembed?start=false&loop=false&delayms=3000",
+      7: "https://docs.google.com/presentation/d/e/2PACX-1vQ0cqW45wfcwQEZWlfWgYY3W1eJmzMGWz2p7gB56DPnKIF0q5uC8fmlnIMefvik_g/pubembed?start=false&loop=false&delayms=3000", 
+      8: "https://docs.google.com/presentation/d/e/2PACX-1vQ0cqW45wfcwQEZWlfWgYY3W1eJmzMGWz2p7gB56DPnKIF0q5uC8fmlnIMefvik_g/pubembed?start=false&loop=false&delayms=3000", 
+      9: "https://docs.google.com/presentation/d/e/2PACX-1vRdgpnkCdJIcN1SlIhCJCCXXOvq6IB8IBNXjyIu8_hpKHPh7C3HIPF5JliHsORllQ/pubembed?start=false&loop=false&delayms=3000", 
+      10:"https://docs.google.com/presentation/d/e/2PACX-1vRjFWCym4HxdQ6RlCWwX_O-DHtQ3sov7fHWHS7tna4VJ8X1z4J-LCZIW-CHVNoiAw/pubembed?start=false&loop=false&delayms=3000",
+      11:"https://docs.google.com/document/d/e/2PACX-1vTMPnnBT1211UaqfEnhVzecOZfOPEKPer1rjiYRRuh_-s9A9Nm060usKKP6J-_tsxBFV6OSjlwxBl1d/pub?embedded=true",
+      12:"https://docs.google.com/document/d/e/2PACX-1vTnaEDc2CIKQknUGJ-9q15dcKdGn0widbKpd0zSIM4EZQU7QVCqNiux8n594yfJs2cl8O7ocwyJ_WIM/pub?embedded=true",
+      13: "https://docs.google.com/document/d/e/2PACX-1vRj7yqGyp6GpjnC9dLZqOraA03jFtE93T7PZl-kfM5GQuhGunKvTXW96PzZLNrCPn_2JtqFIUrkCmqV/pub?embedded=true",
+      14: "https://docs.google.com/document/d/e/2PACX-1vSlBTPbMhFqU5ikQCQS-fvkXpaj6Q4yYyVlLcCHOQxm3mk9dTFIaq2_5JSrdtb7DY_BsVDmLqnipYRr/pub?embedded=true",
+    };
+
+    const iframe = document.getElementById("lectureFrame");
+    iframe.src = slides[lecture] || "404.html";
+  </script>
 </body>
 </html>
